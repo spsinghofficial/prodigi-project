@@ -5,11 +5,11 @@ var request = require("request");
 app.set("view engine","ejs");
 
 app.get("/",function(req,res){
-    
-   res.render("search"); 
+
+   res.render("search");
 });
 app.get("/results",function(req,res){
-    
+
    var query = req.query.search;
    var url = "http://www.omdbapi.com/?s="+query+"&apikey=thewdb"
   request(url, function (error, response, body) {
@@ -20,6 +20,6 @@ app.get("/results",function(req,res){
   }
 });
 });
-app.listen(process.env.PORT,process.env.IP,function(){
+app.listen(3000,function(){
     console.log("server started");
 });
